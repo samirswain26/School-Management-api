@@ -75,10 +75,3 @@ export const getAllSchools = async () => {
   return rows;
 };
 
-export const getSchoolById = async (id) => {
-  const [rows] = await connection.execute(
-    `SELECT * FROM schools WHERE id = ?`,
-    [id]
-  );
-  return rows[0];
-};

@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
-import {connectionDB} from "./config/db.js";
-import  Schoolrouter from "./routes/school.route.js";
+import { connectionDB } from "./config/db.js";
+import Schoolrouter from "./routes/school.route.js";
 
 dotenv.config();
 
@@ -10,7 +10,11 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 4000;
 
-app.use("/", Schoolrouter);
+app.get("/", (req, res) => {
+  res.send("Welcome to school provider.");
+});
+
+app.use("/api/", Schoolrouter);
 
 connectionDB()
   .then(() => {

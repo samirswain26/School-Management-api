@@ -55,7 +55,7 @@ export const addSchool = async (req, res) => {
     });
     if (existingSchool) {
       return res.status(409).json({
-        error: `School '${trimmedName} already exists at this location (${trimmedAddress})`,
+        error: `School "${trimmedName}" already exists at this location (${trimmedAddress})`,
         existingSchool: {
           id: existingSchool.id,
           name: existingSchool.name,
@@ -84,19 +84,19 @@ export const addSchool = async (req, res) => {
   }
 };
 
-// ✅ List Schools Sorted by Proximity
+// List Schools Sorted by Proximity
 export const listSchools = async (req, res) => {
   try {
     const { latitude, longitude } = req.body;
 
-    // 1️⃣ Required fields check
+    // Required fields check
     if (latitude === undefined || longitude === undefined) {
       return res
         .status(400)
         .json({ error: "Latitude and longitude are required" });
     }
 
-    // 2️⃣ Must be numbers
+    //  Must be numbers
     if (isNaN(latitude) || isNaN(longitude)) {
       return res
         .status(400)
@@ -106,7 +106,7 @@ export const listSchools = async (req, res) => {
     const lat = parseFloat(latitude);
     const lon = parseFloat(longitude);
 
-    // 3️⃣ Range check
+    //  Range check
     if (lat < -90 || lat > 90 || lon < -180 || lon > 180) {
       return res.status(400).json({
         error:
