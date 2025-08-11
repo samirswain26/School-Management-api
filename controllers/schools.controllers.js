@@ -87,7 +87,7 @@ export const addSchool = async (req, res) => {
 // List Schools Sorted by Proximity
 export const listSchools = async (req, res) => {
   try {
-    const { latitude, longitude } = req.body;
+    const { latitude, longitude } = req.query;
 
     // Required fields check
     if (latitude === undefined || longitude === undefined) {
