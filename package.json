@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon index.js"
+    "dev": "nodemon index.js"
   },
   "type": "module",
   "author": "",
@@ -11,7 +11,8 @@
   "description": "",
   "dependencies": {
     "dotenv": "^17.2.1",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "mysql2": "^3.14.3"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
