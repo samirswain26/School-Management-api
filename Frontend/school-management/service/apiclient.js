@@ -1,6 +1,6 @@
 class ApiClient {
   constructor() {
-    this.baseURL = "srv-d2csv98gjchc739qm3d0";
+    this.baseURL = "https://school-management-api-yvhy.onrender.com";
 
     this.defaultHeaders = {
       "Content-Type": "application/json",
