@@ -13,7 +13,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "http://127.0.0.1:5173",
-      "https://school-management-api-web.onrender.com", // Frontend deployed
+      process.env.ALLOWED_ORIGIN, // Frontend deployed
     ],
     methods: ["GET", "POST", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
