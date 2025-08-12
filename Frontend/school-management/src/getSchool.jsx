@@ -13,6 +13,9 @@ function GetSchool() {
       setError("Both latitude and longitude are required.");
       return false;
     }
+    const sanitizeInput = (value) => {
+      return value.replace(/[^0-9.-]/g, "");
+    };
     const latNum = parseFloat(latitude);
     const lonNum = parseFloat(longitude);
     if (isNaN(latNum) || latNum < -90 || latNum > 90) {
@@ -24,10 +27,6 @@ function GetSchool() {
       return false;
     }
     return true;
-  };
-
-  const sanitizeInput = (value) => {
-    return value.replace(/[^0-9.-]/g, "");
   };
 
   const handleFetchSchools = async (e) => {
