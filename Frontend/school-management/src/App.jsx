@@ -27,6 +27,11 @@ function App() {
       setError("All fields are required.");
       return false;
     }
+
+    const sanitizeInput = (value) => {
+      return value.replace(/[^0-9.-]/g, "");
+    };
+
     const latNum = parseFloat(latitude);
     if (isNaN(latNum) || latNum < -90 || latNum > 90) {
       setError("Latitude must be a number between -90 and 90.");
@@ -132,7 +137,7 @@ function App() {
             id="latitude"
             placeholder="Add latitude"
             value={latitude}
-            onChange={(e) => setLatitude(e.target.value)}
+            onChange={(e) => setLatitude(sanitizeInput(e.target.value))}
             required
             className="w-full px-4 py-2 border border-gray-300 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
@@ -151,7 +156,7 @@ function App() {
             id="longitude"
             placeholder="Add longitude"
             value={longitude}
-            onChange={(e) => setLongitude(e.target.value)}
+            onChange={(e) => setLongitude(sanitizeInput(e.target.value))}
             required
             className="w-full px-4 py-2 border border-gray-300 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
