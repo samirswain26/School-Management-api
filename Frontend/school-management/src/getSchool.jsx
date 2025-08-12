@@ -13,6 +13,7 @@ function GetSchool() {
       setError("Both latitude and longitude are required.");
       return false;
     }
+
     const sanitizeInput = (value) => {
       return value.replace(/[^0-9.-]/g, "");
     };
