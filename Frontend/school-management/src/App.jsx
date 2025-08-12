@@ -17,6 +17,10 @@ function App() {
     navigate("/listSchools");
   };
 
+  const sanitizeInput = (value) => {
+    return value.replace(/[^0-9.-]/g, "");
+  };
+
   const validateInputs = () => {
     if (
       !name.trim() ||
@@ -27,10 +31,6 @@ function App() {
       setError("All fields are required.");
       return false;
     }
-
-    const sanitizeInput = (value) => {
-      return value.replace(/[^0-9.-]/g, "");
-    };
 
     const latNum = parseFloat(latitude);
     if (isNaN(latNum) || latNum < -90 || latNum > 90) {
